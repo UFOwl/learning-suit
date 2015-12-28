@@ -6,12 +6,32 @@
 body{
   background-color: $bodybg-color;
   h2{
+    padding: 10px;
+    background-color: lightblue;
+    text-align: center;
     color: teal;
   }
   footer{
+    border-top: 1px solid;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 200px;
+    background-color: lightgrey;
     a{
       color: purple;
       text-decoration: none;
+    }
+  }
+}
+#results{
+  margin: 10px;
+  li{
+    .pass{
+      color: green;
+    }
+    .fail{
+      color: red;
     }
   }
 }
