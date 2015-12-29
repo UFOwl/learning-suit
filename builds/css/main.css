@@ -4,25 +4,29 @@
 
 body {
   background-color: #fff; }
+  body #main-container {
+    padding: 10px; }
   body h2 {
     padding: 10px;
     background-color: lightblue;
     text-align: center;
     color: teal; }
   body footer {
-    border-top: 1px solid;
+    padding: 0px 10px;
     position: absolute;
     bottom: 0;
     width: 100%;
-    min-height: 200px;
+    line-height: 100px;
+    min-height: 100px;
     background-color: lightgrey; }
     body footer a {
-      color: purple;
-      text-decoration: none; }
+      color: blue; }
+    body footer span {
+      color: #fff; }
 
 #results {
   margin: 10px; }
-  #results li .pass {
+  #results .pass {
     color: green; }
-  #results li .fail {
+  #results .fail {
     color: red; }

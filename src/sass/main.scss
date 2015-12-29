@@ -5,6 +5,9 @@
 }
 body{
   background-color: $bodybg-color;
+  #main-container{
+    padding: 10px;
+  }
   h2{
     padding: 10px;
     background-color: lightblue;
@@ -12,26 +15,27 @@ body{
     color: teal;
   }
   footer{
-    border-top: 1px solid;
+    padding: 0px 10px;
     position: absolute;
     bottom: 0;
     width: 100%;
-    min-height: 200px;
+    line-height: $footer-hight;
+    min-height: $footer-hight;
     background-color: lightgrey;
     a{
-      color: purple;
-      text-decoration: none;
+      color: blue;
+    }
+    span{
+      color: #fff;
     }
   }
 }
 #results{
   margin: 10px;
-  li{
-    .pass{
-      color: green;
-    }
-    .fail{
-      color: red;
-    }
+  .pass{
+    color: green;
+  }
+  .fail{
+    color: red;
   }
 }

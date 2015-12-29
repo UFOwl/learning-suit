@@ -12,6 +12,7 @@ assert = (value, desc)->
   li = document.createElement "li"
   li.className = if value then "pass" else "fail"
   li.appendChild(document.createTextNode desc)
+  results = document.getElementById "results"
   results.appendChild(li)
   if not value
     li.parentNode.parentNode.className = "fail"
@@ -19,6 +20,5 @@ assert = (value, desc)->
 
 test = (name, fn)->
   results = document.getElementById "results"
-  results = assert(true, name)
-          .appendChild document.createElement "ul"
+  results = assert(true, name).appendChild document.createElement "ul"
   fn()

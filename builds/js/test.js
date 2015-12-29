@@ -22,6 +22,7 @@ assert = function(value, desc) {
   li = document.createElement("li");
   li.className = value ? "pass" : "fail";
   li.appendChild(document.createTextNode(desc));
+  results = document.getElementById("results");
   results.appendChild(li);
   if (!value) {
     li.parentNode.parentNode.className = "fail";
