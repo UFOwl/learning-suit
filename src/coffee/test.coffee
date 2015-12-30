@@ -22,3 +22,19 @@ test = (name, fn)->
   results = document.getElementById "results"
   results = assert(true, name).appendChild document.createElement "ul"
   fn()
+
+EventUtil =
+  addHandler: (element, type, handler)->
+    if element.addEventLinstener
+      element.addEventLinstener(type, handler, false)
+    else if element.attachEvent
+      element.attachEvent("on#{type}", handler)
+    else
+      element["on#{type}"] = handler
+  removeHandler: (element, type, handler)->
+    if element.removeEventLinstener
+      element.removeEventLinstener(type, handler, false)
+    else if element.detachEvent
+      element.detachEvent("on#{type}", handler)
+    else
+      element["on#{type}"] = null

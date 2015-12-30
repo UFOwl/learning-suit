@@ -1,4 +1,4 @@
-var assert, log, results, test;
+var EventUtil, assert, log, results, test;
 
 results = void 0;
 
@@ -34,4 +34,25 @@ test = function(name, fn) {
   results = document.getElementById("results");
   results = assert(true, name).appendChild(document.createElement("ul"));
   return fn();
+};
+
+EventUtil = {
+  addHandler: function(element, type, handler) {
+    if (element.addEventLinstener) {
+      return element.addEventLinstener(type, handler, false);
+    } else if (element.attachEvent) {
+      return element.attachEvent("on" + type, handler);
+    } else {
+      return element["on" + type] = handler;
+    }
+  },
+  removeHandler: function(element, type, handler) {
+    if (element.removeEventLinstener) {
+      return element.removeEventLinstener(type, handler, false);
+    } else if (element.detachEvent) {
+      return element.detachEvent("on" + type, handler);
+    } else {
+      return element["on" + type] = null;
+    }
+  }
 };
