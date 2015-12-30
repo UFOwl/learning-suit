@@ -38,3 +38,6 @@ EventUtil =
       element.detachEvent("on#{type}", handler)
     else
       element["on#{type}"] = null
+
+assert true, "this is for test--sucess!"
+assert false, "this is for test--fail"

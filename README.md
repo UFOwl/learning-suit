@@ -5,3 +5,5 @@
 进到根目录，输入gulp即可运行
 
 在templates 目录下添加jade文件，在coffee里的learning里编写js代码
+
+加入了jquery，underscore，和angular

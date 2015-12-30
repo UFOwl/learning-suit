@@ -46,7 +46,7 @@ table {
   border-spacing: 0; }
 
 #results {
-  margin: 10px; }
+  margin: 10px 0; }
   #results .pass {
     color: #00e676; }
   #results .fail {

@@ -56,3 +56,7 @@ EventUtil = {
     }
   }
 };
+
+assert(true, "this is for test--sucess!");
+
+assert(false, "this is for test--fail");

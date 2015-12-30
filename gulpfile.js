@@ -14,7 +14,7 @@ gulp.task('jade', function(){
 });
 
 gulp.task('sass', function(){
-  gulp.src('src/sass/main.scss')
+  gulp.src('src/sass/*.scss')
       .pipe(sass())
       .pipe(gulp.dest('builds/css'))
       .pipe(connect.reload());

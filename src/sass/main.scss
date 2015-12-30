@@ -1,8 +1,8 @@
-@import "variables";
-@import "reset";
+@import "folder/variables";
+@import "folder/reset";
 
 #results{
-  margin: 10px;
+  margin: 10px 0;
   .pass{
     color: $green;
   }
