@@ -27,6 +27,12 @@ gulp.task('coffee', function(){
       .pipe(connect.reload());
 });
 
+gulp.task('js', function () {
+  gulp.src('src/js/**/*.js')
+      .piep(gulp.dest('builds/js'))
+      .pipe(connect.reload());
+});
+
 gulp.task('connect', function(){
   connect.server({
     root: [rootDir],
@@ -38,8 +44,9 @@ gulp.task('watch', function(){
   gulp.watch('src/templates/**/*.jade', ['jade']);
   gulp.watch('src/sass/**/*.scss', ['sass']);
   gulp.watch('src/coffee/**/*.coffee', ['coffee']);
+  gulp.watch('src/js/**/*.js', ['js']);
 });
 
 gulp.task('default', function(){
-  gulp.start('jade','sass','coffee','watch','connect');
+  gulp.start('jade','sass','coffee','js','watch','connect');
 });
