@@ -2,6 +2,7 @@ var gulp = require('gulp')
     jade = require('gulp-jade')
     sass = require('gulp-sass'),
     coffee = require('gulp-coffee'),
+    livescript = require('gulp-livescript'),
     connect = require('gulp-connect');
 
 var rootDir = 'builds';
@@ -20,6 +21,12 @@ gulp.task('sass', function(){
       .pipe(connect.reload());
 });
 
+gulp.task('ls', function () {
+  gulp.src('src/ls/**/*.ls')
+      .pipe(livescript({bare: true}))
+      .pipe(gulp.dest('builds/js'))
+      .pipe(connect.reload());
+});
 gulp.task('coffee', function(){
   gulp.src('src/coffee/**/*.coffee')
       .pipe(coffee({bare: true}))
@@ -43,10 +50,11 @@ gulp.task('connect', function(){
 gulp.task('watch', function(){
   gulp.watch('src/templates/**/*.jade', ['jade']);
   gulp.watch('src/sass/**/*.scss', ['sass']);
+  gulp.watch('src/ls/**/*.ls', ['ls']);
   gulp.watch('src/coffee/**/*.coffee', ['coffee']);
   gulp.watch('src/js/**/*.js', ['rawjs']);
 });
 
 gulp.task('default', function(){
-  gulp.start('jade','sass','coffee','rawjs','watch','connect');
+  gulp.start('jade','sass','ls','coffee','rawjs','watch','connect');
 });

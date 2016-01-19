@@ -4,9 +4,9 @@
 #results{
   margin: 10px 0;
   .pass{
-    color: $green;
+    color: $success;
   }
   .fail{
-    color: $red;
+    color: $fail;
   }
 }
