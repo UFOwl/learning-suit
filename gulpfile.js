@@ -1,50 +1,36 @@
-var gulp = require('gulp')
-    jade = require('gulp-jade')
+var gulp = require('gulp'),
+    jade = require('gulp-jade'),
     sass = require('gulp-sass'),
     coffee = require('gulp-coffee'),
-    livescript = require('gulp-livescript'),
-    connect = require('gulp-connect');
+    livescript = require('gulp-livescript');
 
-var rootDir = 'builds';
 
 gulp.task('jade', function(){
   gulp.src('src/templates/*.jade')
       .pipe(jade())
-      .pipe(gulp.dest('builds'))
-      .pipe(connect.reload());
+      .pipe(gulp.dest('builds'));
 });
 
 gulp.task('sass', function(){
   gulp.src('src/sass/*.scss')
       .pipe(sass())
-      .pipe(gulp.dest('builds/css'))
-      .pipe(connect.reload());
+      .pipe(gulp.dest('builds/css'));
 });
 
 gulp.task('ls', function () {
   gulp.src('src/ls/**/*.ls')
       .pipe(livescript({bare: true}))
-      .pipe(gulp.dest('builds/js'))
-      .pipe(connect.reload());
+      .pipe(gulp.dest('builds/js'));
 });
 gulp.task('coffee', function(){
   gulp.src('src/coffee/**/*.coffee')
       .pipe(coffee({bare: true}))
-      .pipe(gulp.dest('builds/js'))
-      .pipe(connect.reload());
+      .pipe(gulp.dest('builds/js'));
 });
 
 gulp.task('rawjs', function () {
   gulp.src('src/js/**/*.js')
-      .pipe(gulp.dest('builds/js'))
-      .pipe(connect.reload());
-});
-
-gulp.task('connect', function(){
-  connect.server({
-    root: [rootDir],
-    livereload: true
-  });
+      .pipe(gulp.dest('builds/js'));
 });
 
 gulp.task('watch', function(){
@@ -56,5 +42,5 @@ gulp.task('watch', function(){
 });
 
 gulp.task('default', function(){
-  gulp.start('jade','sass','ls','coffee','rawjs','watch','connect');
+  gulp.start('jade','sass','ls','coffee','rawjs','watch');
 });
