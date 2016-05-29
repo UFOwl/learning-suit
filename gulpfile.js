@@ -1,7 +1,6 @@
 var gulp = require('gulp'),
     jade = require('gulp-jade'),
     sass = require('gulp-sass'),
-    coffee = require('gulp-coffee'),
     livescript = require('gulp-livescript');
 
 
@@ -22,11 +21,6 @@ gulp.task('ls', function () {
       .pipe(livescript({bare: true}))
       .pipe(gulp.dest('builds/js'));
 });
-gulp.task('coffee', function(){
-  gulp.src('src/coffee/**/*.coffee')
-      .pipe(coffee({bare: true}))
-      .pipe(gulp.dest('builds/js'));
-});
 
 gulp.task('rawjs', function () {
   gulp.src('src/js/**/*.js')
@@ -37,10 +31,9 @@ gulp.task('watch', function(){
   gulp.watch('src/templates/**/*.jade', ['jade']);
   gulp.watch('src/sass/**/*.scss', ['sass']);
   gulp.watch('src/ls/**/*.ls', ['ls']);
-  gulp.watch('src/coffee/**/*.coffee', ['coffee']);
   gulp.watch('src/js/**/*.js', ['rawjs']);
 });
 
 gulp.task('default', function(){
-  gulp.start('jade','sass','ls','coffee','rawjs','watch');
+  gulp.start('jade','sass','ls','rawjs','watch');
 });
