@@ -2,6 +2,7 @@ var gulp        = require('gulp'),
     watchify    = require('watchify'),
     source      = require('vinyl-source-stream'),
     buffer      = require('vinyl-buffer'),
+    debowerify  = require('debowerify'),
     browserify  = require('browserify'),
     browserSync = require('browser-sync').create(),
     $ = require('gulp-load-plugins')();
@@ -63,6 +64,7 @@ var b = watchify(browserify(Object.assign({}, watchify.args, {
 
 // add transformations here
 // i.e. b.transform(coffeeify);
+b.transform(debowerify);
 
 gulp.task('browserify', bundle);  
 b.on('update', bundle); // on any dep update, runs the bundler  
